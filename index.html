@@ -4,33 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telegram Dergi</title>
-    <!-- Sayfa çevirme efekti için jQuery ve Turn.js -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
     <style>
         body { background: #222; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: sans-serif; overflow: hidden; }
         #dergi { width: 100vw; height: 100vh; max-width: 800px; max-height: 600px; }
-        .sayfa { background: #fff; color: #111; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: inset 0 0 20px rgba(0,0,0,0.1); border: 1px solid #ccc; text-align: center; padding: 10px; box-sizing: border-box;}
+        .sayfa { background: #fff; color: #111; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: inset 0 0 20px rgba(0,0,0,0.1); border: 1px solid #ccc; text-align: center; padding: 0; box-sizing: border-box; overflow: hidden;}
+        .sayfa.yazi { padding: 10px; }
         video { width: 90%; max-height: 50%; border-radius: 10px; margin-top: 15px; }
     </style>
 </head>
 <body>
 
 <div id="dergi">
-    <div class="sayfa"><h2>Kapak Sayfası</h2><p>Projeye Hoşgeldin.</p></div>
-    <div class="sayfa"><h2>Sayfa 2</h2><p>Sayfayı çevir, video arkada...</p></div>
+    <div class="sayfa yazi"><h2>Kapak Sayfası</h2><p>Projeye Hoşgeldin.</p></div>
+    
+    <!-- Senin eklediğin 1. fotoğraf -->
     <div class="sayfa">
+        <img src="IMG_20261114_141840627.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    
+    <!-- Senin eklediğin 2. fotoğraf -->
+    <div class="sayfa">
+        <img src="IMG_20261114_155054264.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+
+    <div class="sayfa yazi">
         <h2>Video Sayfası</h2>
         <video controls>
             <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
         </video>
     </div>
-    <div class="sayfa"><h2>Arka Kapak</h2><p>Son.</p></div>
+    
+    <div class="sayfa yazi"><h2>Arka Kapak</h2><p>Son.</p></div>
 </div>
 
 <script>
     $(window).ready(function() {
-        // Telefonda da düzgün görünmesi için dinamik boyut
         var w = Math.min($(window).width() * 0.95, 800);
         var h = Math.min($(window).height() * 0.8, 600);
         
